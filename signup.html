@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Mesh</title>
+        <!-- This page should have an input form where users can
+             input their first name, last name, username,
+             and password twice. A submit button should also be included. -->
+        <script type="text/javascript" src="main.js"></script>
+    </head>
+    <header>
+    <h1>
+        Sign Up For Mesh
+    </h1>
+    </header>
+    <body>
+    <form method="post" action="store_user.php">
+        First Name: <input type="text" name="userFirst" id="userFirst"><br>
+        Last Name <input type="text" name="userLast" id="userLast"><br>
+        Username: <input type="text" name="userID" id="username"><br>
+        Enter Password: <input type="password" name="password" id="pass"><br>
+        Re-enter Passowrd: <input type="password" name="passwordCheck" id="passCheck"><br>
+    </form>
+        <button onclick="checkusername(document.getElementById('username').value)">Sign Up</button>
+        <p id="message"></p>
+    </body>
+</html>
