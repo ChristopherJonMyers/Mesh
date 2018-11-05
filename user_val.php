@@ -1,8 +1,8 @@
 <?php
-    $servername = "pdb25.awardspace.net";
-    $username = "2649938_messages";
-    $password = "hershmyers18";
-    $dbname = "2649938_messages";
+    $servername = "";
+    $username = "";
+    $password = "";
+    $dbname = "";
 
     $userID = $_POST['object'];
 
