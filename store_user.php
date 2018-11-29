@@ -2,10 +2,10 @@
     $userData = $_POST["object"];
     $userData = json_decode($userData);
 
-    $servername = "";
-    $username = "";
-    $password = "";
-    $dbname = "";
+    $servername = "pdb25.awardspace.net";
+    $username = "2649938_messages";
+    $password = "hershmyers18";
+    $dbname = "2649938_messages";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
     if ($conn->connect_error) {
@@ -24,5 +24,12 @@
         
         $sqlMakeUser = "INSERT INTO accounts (first_name, last_name, user_name, salt, pw_hash) VALUES ('$userData->firstName', '$userData->lastName', '$userData->username', '$salt', '$pwh')";
         $resultMakeUser = $conn->query($sqlMakeUser);
+        $sqlGetInfo = "SELECT id FROM accounts WHERE user_name = '$userData->username'";
+        $resultInfo = $conn->query($sqlGetInfo);
+        $rowInfo = $resultInfo->fetch_assoc();
+        session_start();
+        $_SESSION["user"] = $userData->username;
+        $_SESSION["id"] = $rowInfo['id'];
+        header('Location: home.php');
     }
     

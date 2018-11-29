@@ -13,7 +13,6 @@ function createUser() {
     }
 
     if (validate([_username, _pass, _firstName, _lastName])) {
-        document.getElementById("message").innerHTML = "Passed validation";
         let creds = {
             username: _username,
             pass: _pass,
@@ -31,7 +30,7 @@ function createUser() {
 
         request.onreadystatechange = function () {
             if (request.readyState == 4 && request.status == 200) {
-                console.log(request.responseText);
+                window.location.href = "home.php";
             }
         }
 
@@ -39,10 +38,6 @@ function createUser() {
     }
 
     //document.getElementById("message").innerHTML = "Passwords match.";
-}
-
-function validate(arr) {
-    return true;
 }
 
 function checkusername(username) {
@@ -68,4 +63,8 @@ function checkusername(username) {
     }
     userCheck.send(str);
 
+}
+
+function sendLogin(_username, _password) {
+    
 }
